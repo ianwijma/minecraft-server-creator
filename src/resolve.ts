@@ -1,8 +1,8 @@
 import type { Command } from "../types.d.tsx";
-import { commands } from "./commands/index.ts";
+import { command as mainCommand } from "./commands/index.ts";
 
-export const resolveCommands = (path: string[]): Command | null => {
-    let stack = commands;
+export const resolve = (path: string[]): Command | null => {
+    let stack: Command[] = (mainCommand.sub as Command[]);
     let command: null | Command = null;
 
     path.forEach(target => {

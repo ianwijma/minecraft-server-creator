@@ -1,12 +1,13 @@
 import { parseArgs } from "jsr:@std/cli/parse-args";
-import { resolveCommands } from "./resolveCommands.ts";
+import { resolve } from "./resolve.ts";
 
 const {
     _: path,
     ...args
 } = parseArgs(Deno.args);
 
-const command = resolveCommands(path.map(p => p.toString()));
+const pathString = path.map(p => p.toString());
+const command = resolve(pathString);
 
 if (command?.action) {
     command?.action(args);
