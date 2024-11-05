@@ -1,3 +1,5 @@
+// deno-fmt-ignore-file
+
 import type { Command } from "../types.d.tsx";
 import denoFile from "../deno.json" with { type: "json" };
 import { command as mainCommand } from "./commands/index.ts";
@@ -28,39 +30,20 @@ export const renderHelp = (
     const fullCommand = getFullCommand(command);
     const hasSub = sub.length > 0;
 
-    // TODO: Disable Deno formatting so this following can actually be readable
-    const unknownText = unknown
-        ? `Unknown command
+    const unknownText = unknown ? `Unknown command
 
-`
-        : "";
+` : "";
 
     console.log(
-        `${unknownText}${fullCommand} ${hasSub ? "<command>" : ""}${
-            description
-                ? `
-${description}`
-                : ""
-        }
+        `${unknownText}${fullCommand} ${hasSub ? "<command>" : ""}${description? `
+${description}` : ""}
 
 Usage:
 ${name === mainName ? "" : mainName} ${example}
-${
-            hasSub
-                ? `
+${hasSub ? `
 All commands:
-${
-                    sub.map(({ example, description }) =>
-                        `${
-                            name === mainName
-                                ? ""
-                                : mainName
-                        } ${example}\t- ${description}\n`
-                    )
-                }`
-                : ""
-        }
-${mainName} ${denoFile.version}
+${ sub.map(({ example, description }) =>`${name === mainName? "": mainName} ${example}\t${description}\n`)}`: ""}
+${mainName}@${denoFile.version}
 `,
     );
 };

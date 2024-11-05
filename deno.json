@@ -1,7 +1,7 @@
 {
   "version": "0.0.1",
   "tasks": {
-    "dev": "deno run src/index.ts init vanilla KEKEKE --help -asd --query=\"hello world\" --level=warn --numbers=1,2,3,4,5",
+    "dev": "deno run src/index.ts init --help -asd --query=\"hello world\" --level=warn --numbers=1,2,3,4,5",
     "compile": "deno task compile:linux:x86 && deno task compile:linux:arm && deno task compile:mac:x86 && deno task compile:mac:arm && deno task compile:windows:x86",
     "compile:linux:x86": "deno compile --allow-read --allow-write --allow-net --target x86_64-unknown-linux-gnu --output out/msc-linux-x86 src/index.ts",
     "compile:linux:arm": "deno compile --allow-read --allow-write --allow-net --target aarch64-unknown-linux-gnu --output out/msc-linux-arm src/index.ts",
