@@ -28,6 +28,7 @@ export const renderHelp = (
     const fullCommand = getFullCommand(command);
     const hasSub = sub.length > 0;
 
+    // TODO: Disable Deno formatting so this following can actually be readable
     const unknownText = unknown
         ? `Unknown command
 
