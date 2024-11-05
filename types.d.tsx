@@ -5,5 +5,6 @@ export type Command = {
     description: string
     example: string
     action?: CommandAction
+    parent?: Command
     sub?: Command[]
 }

@@ -5,5 +5,5 @@ export const command: Command = {
   name: "msc",
   description: "Minecraft Server Creator",
   example: "msc --help",
-  sub: [ InitCommand ]
-}
+  sub: [InitCommand],
+};
