@@ -2,7 +2,7 @@
 
 import type { Command } from "../types.d.tsx";
 import denoFile from "../deno.json" with { type: "json" };
-import { command as mainCommand } from "./commands/index.ts";
+import { EntryCommand } from "./commands/index.ts";
 
 const getFullCommand = (command: Command): string => {
     let fullCommand = [command.name];
@@ -26,7 +26,7 @@ export const renderHelp = (
     { command, unknown = false }: RenderHelpParams,
 ): void => {
     const { description, example, sub = [] } = command;
-    const { name: mainName } = mainCommand;
+    const { name: mainName } = EntryCommand;
     const fullCommand = getFullCommand(command);
     const hasSub = sub.length > 0;
 

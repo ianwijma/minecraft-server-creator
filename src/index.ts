@@ -1,7 +1,7 @@
 import { parseArgs } from "jsr:@std/cli/parse-args";
 import { resolve } from "./resolve.ts";
 import { renderHelp } from "./renderHelp.ts";
-import { command as mainCommand } from "./commands/index.ts";
+import { EntryCommand } from "./commands/index.ts";
 
 const {
     _: path,
@@ -21,5 +21,5 @@ if (command) {
         renderHelp({ command });
     }
 } else {
-    renderHelp({ command: mainCommand, unknown: true });
+    renderHelp({ command: EntryCommand, unknown: true });
 }
